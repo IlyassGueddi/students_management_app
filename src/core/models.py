@@ -6,11 +6,10 @@ class Person:
 
 class Student(Person):
     def __init__(self, nom, prenom, date_naissance, code_massar):
-        super(Student, self).__init__(nom, prenom, date_naissance)
+        super().__init__(nom, prenom, date_naissance)
         self.code_massar = code_massar
 
     def to_dict(self):
-        """تحويل بيانات الطالب إلى قاموس لحفظها في JSON"""
         return {
             "nom": self.nom,
             "prenom": self.prenom,
@@ -30,10 +29,10 @@ class Matiere:
         }
 
 class Absence:
-    def __init__(self, date, student_code, code_matiere, justification="Non justifiée"):
+    def __init__(self, date, student_code, code_matiere, justification):
         self.date = date
-        self.student_code = student_code  # نستخدم الكود لربطه بملف الطلاب
-        self.code_matiere = code_matiere # نستخدم كود المادة
+        self.student_code = student_code
+        self.code_matiere = code_matiere 
         self.justification = justification
 
     def to_dict(self):
